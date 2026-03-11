@@ -40,7 +40,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-muted-foreground text-xs">
-            © {new Date().getFullYear()} CNH de Volta. Todos os direitos reservados.
+            © {new Date().getFullYear()} CNH de Novo. Todos os direitos reservados.
           </p>
         </div>
       </div>
