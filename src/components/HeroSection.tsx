@@ -25,7 +25,7 @@ const HeroSection = () => {
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Perdeu a CNH?{" "}
-            <span className="text-gradient">Nós ajudamos você a ter sua CNH de volta.</span>
+            <span className="text-gradient">Nós ajudamos você a ter sua CNH de novo.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">

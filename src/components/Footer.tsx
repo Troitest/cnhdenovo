@@ -9,11 +9,9 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold">
-              <span className="text-gradient">CNH</span> de Volta
-            </h3>
-            <p className="text-muted-foreground text-sm mt-1">
-              Defesa especializada para motoristas que precisam recuperar o direito de dirigir.
+            <img src={logo} alt="CNH de Novo" className="h-10" />
+            <p className="text-muted-foreground text-sm mt-2">
+              Especialistas em CNH Suspensa e Cassada.
             </p>
           </div>
 
