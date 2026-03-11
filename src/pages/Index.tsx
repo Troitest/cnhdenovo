@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import QuizSection from "@/components/QuizSection";
+import CnhRulesSection from "@/components/CnhRulesSection";
 import UrgentSection from "@/components/UrgentSection";
 import FormSection from "@/components/FormSection";
 import ContactSection from "@/components/ContactSection";
