@@ -20,12 +20,12 @@ const HeroSection = () => {
       <div className="container relative z-10 mx-auto px-4 py-20 md:py-32">
         <div className="max-w-3xl">
           <div className="inline-block mb-6 px-4 py-2 rounded-full border border-primary/30 bg-primary/10">
-            <span className="text-sm font-semibold text-primary">⚠️ Especialistas em recuperação de CNH</span>
+            <span className="text-sm font-semibold text-primary">⚠️ Especialistas em CNH Suspensa e Cassada</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Perdeu a CNH?{" "}
-            <span className="text-gradient">Nós ajudamos você a ter sua CNH de volta.</span>
+            <span className="text-gradient">Nós ajudamos você a ter sua CNH de novo.</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
