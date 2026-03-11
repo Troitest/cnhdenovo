@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <img src={logo} alt="CNH de Novo" className="h-10" />
+          <img alt="CNH de Novo" className="h-10" src="/lovable-uploads/41f9fddc-0f34-4b9f-9ff3-2be098d732da.jpg" />
         </a>
 
         <Button variant="hero" size="sm" asChild>
@@ -19,8 +19,8 @@ const Navbar = () => {
           </a>
         </Button>
       </div>
-    </nav>
-  );
+    </nav>);
+
 };
 
 export default Navbar;
