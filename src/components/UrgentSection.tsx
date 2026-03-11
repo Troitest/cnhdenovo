@@ -15,7 +15,7 @@ const UrgentSection = () => {
             <Clock className="w-8 h-8 text-primary" />
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-medium mb-6">
             Não espere <span className="text-gradient">piorar a situação</span> da sua CNH
           </h2>
 
