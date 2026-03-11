@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <img src={logo} alt="CNH de Novo" className="h-10" />
+            <img alt="CNH de Novo" className="h-10" src="/lovable-uploads/07dfd3e9-d442-4e26-a90d-b3c304f18932.png" />
             <p className="text-muted-foreground text-sm mt-2">
               Especialistas em CNH Suspensa e Cassada.
             </p>
@@ -22,8 +22,8 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-              aria-label="WhatsApp"
-            >
+              aria-label="WhatsApp">
+              
               <MessageCircle className="w-5 h-5" />
             </a>
             <a
@@ -31,8 +31,8 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-              aria-label="Instagram"
-            >
+              aria-label="Instagram">
+              
               <Instagram className="w-5 h-5" />
             </a>
           </div>
@@ -44,8 +44,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
