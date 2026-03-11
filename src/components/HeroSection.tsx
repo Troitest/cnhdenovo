@@ -23,7 +23,7 @@ const HeroSection = () => {
             <span className="text-sm font-semibold text-primary">⚠️ Especialistas em CNH Suspensa e Cassada</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 font-semibold">
             Perdeu a CNH?{" "}
             <span className="text-gradient">Nós ajudamos você a ter sua CNH de novo.</span>
           </h1>
@@ -49,8 +49,8 @@ const HeroSection = () => {
 
       {/* Decorative yellow line at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary" />
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
