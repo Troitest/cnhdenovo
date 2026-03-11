@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
@@ -60,18 +61,16 @@ const FormSection = () => {
             </div>
 
             {/* Categoria */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <Label>Categoria da CNH</Label>
-              <Select name="categoria">
-                <SelectTrigger>
-                  <SelectValue placeholder="Selecione a categoria" />
-                </SelectTrigger>
-                <SelectContent>
-                  {["A", "B", "C", "D", "E", "AB", "AC", "AD", "AE"].map((cat) => (
-                    <SelectItem key={cat} value={cat}>Categoria {cat}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <div className="flex gap-4 flex-wrap">
+                {["A", "B", "C", "D", "E"].map((cat) => (
+                  <div key={cat} className="flex items-center gap-2">
+                    <Checkbox id={`cat-${cat}`} name="categoria" value={cat} />
+                    <Label htmlFor={`cat-${cat}`} className="cursor-pointer">{cat}</Label>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Situação da CNH */}
