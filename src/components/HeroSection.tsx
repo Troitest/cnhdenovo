@@ -23,7 +23,7 @@ const HeroSection = () => {
             <span className="text-sm font-semibold text-primary">⚠️ Especialistas em CNH Suspensa e Cassada</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 font-semibold">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 font-medium">
             Perdeu a CNH?{" "}
             <span className="text-gradient">Nós ajudamos você a ter sua CNH de novo.</span>
           </h1>
