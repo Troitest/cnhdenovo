@@ -26,7 +26,7 @@ const SolutionSection = () => {
               <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <item.icon className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+              <h3 className="font-medium text-lg mb-2">{item.title}</h3>
               <p className="text-muted-foreground text-sm">{item.desc}</p>
             </div>
           )}
