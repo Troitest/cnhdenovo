@@ -9,17 +9,125 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 
+const WHATSAPP_NUMBER = "5500000000000";
+
+const SITUACAO_LABELS: Record<string, string> = {
+  ativa: "Ativa",
+  suspensa: "Suspensa",
+  cassada: "Cassada",
+  "processo-suspensao": "Em processo de suspensão",
+  "processo-cassacao": "Em processo de cassação",
+  "nao-sei": "Não sei informar",
+};
+
+const MOTIVO_LABELS: Record<string, string> = {
+  "excesso-velocidade": "Excesso de velocidade",
+  "sinal-vermelho": "Avançar sinal vermelho",
+  alcool: "Dirigir sob efeito de álcool",
+  celular: "Uso de celular ao volante",
+  estacionamento: "Estacionamento irregular",
+  outro: "Outro",
+};
+
+const PRAZO_LABELS: Record<string, string> = {
+  sim: "Sim, ainda está no prazo",
+  acredito: "Acredito que ainda esteja",
+  "nao-sei": "Não tenho certeza",
+  venceu: "O prazo já venceu",
+};
+
+const CNH_TRABALHO_LABELS: Record<string, string> = {
+  profissional: "Sim, sou motorista profissional",
+  "sim-nao-profissional": "Sim, utilizo no trabalho mas não sou motorista profissional",
+  nao: "Não utilizo para trabalho",
+};
+
 const FormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [situacao, setSituacao] = useState("");
+  const [motivo, setMotivo] = useState("");
+  const [prazoAberto, setPrazoAberto] = useState("");
+  const [defesa, setDefesa] = useState("");
+  const [cnhTrabalho, setCnhTrabalho] = useState("");
+  const [categorias, setCategorias] = useState<string[]>([]);
+
+  const handleCategoriaToggle = (cat: string, checked: boolean) => {
+    setCategorias((prev) =>
+      checked ? [...prev, cat] : prev.filter((c) => c !== cat)
+    );
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const nome = (formData.get("nome") as string)?.trim();
+    const telefone = (formData.get("telefone") as string)?.trim();
+    const cidade = (formData.get("cidade") as string)?.trim();
+    const numeroCnh = (formData.get("numeroCnh") as string)?.trim();
+    const marcaVeiculo = (formData.get("marcaVeiculo") as string)?.trim();
+    const modeloVeiculo = (formData.get("modeloVeiculo") as string)?.trim();
+    const dataNotificacao = (formData.get("dataNotificacao") as string)?.trim();
+    const prazoFinal = (formData.get("prazoFinal") as string)?.trim();
+    const mensagem = (formData.get("mensagem") as string)?.trim();
+
+    // Validação dos campos obrigatórios
+    if (
+      !nome || !telefone || !cidade || !numeroCnh ||
+      categorias.length === 0 || !situacao || !motivo ||
+      !defesa || !marcaVeiculo || !modeloVeiculo || !cnhTrabalho
+    ) {
+      toast.error("Por favor, preencha todos os campos obrigatórios.");
+      return;
+    }
+
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Formulário enviado com sucesso! Entraremos em contato em breve.");
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+
+    const categoriasText = categorias.join(", ");
+    const situacaoText = SITUACAO_LABELS[situacao] || situacao;
+    const motivoText = MOTIVO_LABELS[motivo] || motivo;
+    const defesaText = defesa === "sim" ? "Sim" : "Não";
+    const cnhTrabalhoText = CNH_TRABALHO_LABELS[cnhTrabalho] || cnhTrabalho;
+    const veiculo = `${marcaVeiculo} ${modeloVeiculo}`;
+
+    const msg = [
+      "Olá, acabei de solicitar a análise da minha CNH pelo site e gostaria de verificar minha situação.",
+      "",
+      `Nome: ${nome}`,
+      "",
+      `Telefone: ${telefone}`,
+      "",
+      `Cidade / Estado: ${cidade}`,
+      "",
+      `Número da CNH: ${numeroCnh}`,
+      "",
+      `Categoria da CNH: ${categoriasText}`,
+      "",
+      `Situação da CNH: ${situacaoText}`,
+      "",
+      `Motivo da penalidade: ${motivoText}`,
+      "",
+      `Data aproximada da notificação: ${dataNotificacao || "NÃO INFORMADO"}`,
+      "",
+      `Prazo final da notificação: ${prazoFinal || "NÃO INFORMADO"}`,
+      "",
+      `Já apresentou defesa ou recurso: ${defesaText}`,
+      "",
+      `Veículo utilizado: ${veiculo}`,
+      "",
+      `Uso da CNH para trabalho: ${cnhTrabalhoText}`,
+      "",
+      `Descrição do caso: ${mensagem || "NÃO INFORMADO"}`,
+      "",
+      "Gostaria de saber se ainda existe possibilidade de defesa ou recurso para o meu caso.",
+    ].join("\n");
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+
+    setIsSubmitting(false);
+    toast.success("Redirecionando para o WhatsApp...");
   };
 
   return (
@@ -38,35 +146,39 @@ const FormSection = () => {
           <form onSubmit={handleSubmit} className="space-y-6 p-6 md:p-8 rounded-2xl bg-card border border-border shadow-card">
             {/* Nome */}
             <div className="space-y-2">
-              <Label htmlFor="nome">Nome completo</Label>
+              <Label htmlFor="nome">Nome completo <span className="text-destructive">*</span></Label>
               <Input id="nome" name="nome" placeholder="Seu nome completo" required maxLength={100} />
             </div>
 
             {/* Telefone */}
             <div className="space-y-2">
-              <Label htmlFor="telefone">Telefone / WhatsApp</Label>
+              <Label htmlFor="telefone">Telefone / WhatsApp <span className="text-destructive">*</span></Label>
               <Input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required maxLength={20} />
             </div>
 
             {/* Cidade / Estado */}
             <div className="space-y-2">
-              <Label htmlFor="cidade">Cidade e Estado</Label>
+              <Label htmlFor="cidade">Cidade e Estado <span className="text-destructive">*</span></Label>
               <Input id="cidade" name="cidade" placeholder="Ex: São Paulo - SP" required maxLength={100} />
             </div>
 
             {/* Número CNH */}
             <div className="space-y-2">
-              <Label htmlFor="numeroCnh">Número da CNH</Label>
-              <Input id="numeroCnh" name="numeroCnh" placeholder="Número da sua CNH" maxLength={20} />
+              <Label htmlFor="numeroCnh">Número da CNH <span className="text-destructive">*</span></Label>
+              <Input id="numeroCnh" name="numeroCnh" placeholder="Número da sua CNH" required maxLength={20} />
             </div>
 
             {/* Categoria */}
             <div className="space-y-3">
-              <Label>Categoria da CNH</Label>
+              <Label>Categoria da CNH <span className="text-destructive">*</span></Label>
               <div className="flex gap-4 flex-wrap">
                 {["A", "B", "C", "D", "E"].map((cat) => (
                   <div key={cat} className="flex items-center gap-2">
-                    <Checkbox id={`cat-${cat}`} name="categoria" value={cat} />
+                    <Checkbox
+                      id={`cat-${cat}`}
+                      checked={categorias.includes(cat)}
+                      onCheckedChange={(checked) => handleCategoriaToggle(cat, !!checked)}
+                    />
                     <Label htmlFor={`cat-${cat}`} className="cursor-pointer">{cat}</Label>
                   </div>
                 ))}
@@ -75,8 +187,8 @@ const FormSection = () => {
 
             {/* Situação da CNH */}
             <div className="space-y-2">
-              <Label>Situação da CNH</Label>
-              <Select name="situacao" required>
+              <Label>Situação da CNH <span className="text-destructive">*</span></Label>
+              <Select value={situacao} onValueChange={setSituacao} required>
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione a situação" />
                 </SelectTrigger>
@@ -93,8 +205,8 @@ const FormSection = () => {
 
             {/* Motivo */}
             <div className="space-y-2">
-              <Label>Motivo da penalidade (se souber)</Label>
-              <Select name="motivo">
+              <Label>Motivo da penalidade <span className="text-destructive">*</span></Label>
+              <Select value={motivo} onValueChange={setMotivo} required>
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione o motivo" />
                 </SelectTrigger>
@@ -124,32 +236,22 @@ const FormSection = () => {
             {/* Prazo aberto */}
             <div className="space-y-3">
               <Label>O prazo para defesa ainda está aberto?</Label>
-              <RadioGroup name="prazoAberto" defaultValue="">
+              <RadioGroup value={prazoAberto} onValueChange={setPrazoAberto}>
                 <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="sim" id="prazo-sim" />
-                    <Label htmlFor="prazo-sim" className="cursor-pointer">Sim, ainda está no prazo</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="acredito" id="prazo-acredito" />
-                    <Label htmlFor="prazo-acredito" className="cursor-pointer">Acredito que ainda esteja</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="nao-sei" id="prazo-nao-sei" />
-                    <Label htmlFor="prazo-nao-sei" className="cursor-pointer">Não tenho certeza</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="venceu" id="prazo-venceu" />
-                    <Label htmlFor="prazo-venceu" className="cursor-pointer">O prazo já venceu</Label>
-                  </div>
+                  {Object.entries(PRAZO_LABELS).map(([value, label]) => (
+                    <div key={value} className="flex items-center gap-2">
+                      <RadioGroupItem value={value} id={`prazo-${value}`} />
+                      <Label htmlFor={`prazo-${value}`} className="cursor-pointer">{label}</Label>
+                    </div>
+                  ))}
                 </div>
               </RadioGroup>
             </div>
 
             {/* Já apresentou defesa */}
             <div className="space-y-3">
-              <Label>Você já apresentou defesa ou recurso?</Label>
-              <RadioGroup name="defesa" defaultValue="">
+              <Label>Você já apresentou defesa ou recurso? <span className="text-destructive">*</span></Label>
+              <RadioGroup value={defesa} onValueChange={setDefesa}>
                 <div className="flex gap-6">
                   <div className="flex items-center gap-2">
                     <RadioGroupItem value="sim" id="defesa-sim" />
@@ -165,33 +267,27 @@ const FormSection = () => {
 
             {/* Marca do veículo */}
             <div className="space-y-2">
-              <Label htmlFor="marcaVeiculo">Marca do veículo que você utiliza com mais frequência</Label>
-              <Input id="marcaVeiculo" name="marcaVeiculo" placeholder="Exemplo: Chevrolet, Volkswagen, Toyota, BMW, Mercedes" maxLength={100} />
+              <Label htmlFor="marcaVeiculo">Marca do veículo que você utiliza com mais frequência <span className="text-destructive">*</span></Label>
+              <Input id="marcaVeiculo" name="marcaVeiculo" placeholder="Exemplo: Chevrolet, Volkswagen, Toyota, BMW, Mercedes" required maxLength={100} />
             </div>
 
             {/* Modelo do veículo */}
             <div className="space-y-2">
-              <Label htmlFor="modeloVeiculo">Modelo do veículo</Label>
-              <Input id="modeloVeiculo" name="modeloVeiculo" placeholder="Exemplo: Onix, Gol, Corolla, Hilux, Civic" maxLength={100} />
+              <Label htmlFor="modeloVeiculo">Modelo do veículo <span className="text-destructive">*</span></Label>
+              <Input id="modeloVeiculo" name="modeloVeiculo" placeholder="Exemplo: Onix, Gol, Corolla, Hilux, Civic" required maxLength={100} />
             </div>
 
             {/* Utiliza CNH para trabalhar */}
             <div className="space-y-3">
-              <Label>Você utiliza a CNH para trabalhar?</Label>
-              <RadioGroup name="cnhTrabalho" defaultValue="">
+              <Label>Você utiliza a CNH para trabalhar? <span className="text-destructive">*</span></Label>
+              <RadioGroup value={cnhTrabalho} onValueChange={setCnhTrabalho}>
                 <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="profissional" id="trabalho-profissional" />
-                    <Label htmlFor="trabalho-profissional" className="cursor-pointer">Sim, sou motorista profissional</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="sim-nao-profissional" id="trabalho-sim" />
-                    <Label htmlFor="trabalho-sim" className="cursor-pointer">Sim, utilizo no trabalho mas não sou motorista profissional</Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="nao" id="trabalho-nao" />
-                    <Label htmlFor="trabalho-nao" className="cursor-pointer">Não utilizo para trabalho</Label>
-                  </div>
+                  {Object.entries(CNH_TRABALHO_LABELS).map(([value, label]) => (
+                    <div key={value} className="flex items-center gap-2">
+                      <RadioGroupItem value={value} id={`trabalho-${value}`} />
+                      <Label htmlFor={`trabalho-${value}`} className="cursor-pointer">{label}</Label>
+                    </div>
+                  ))}
                 </div>
               </RadioGroup>
             </div>
@@ -204,7 +300,7 @@ const FormSection = () => {
 
             <Button type="submit" variant="hero" size="xl" className="w-full" disabled={isSubmitting}>
               <Send className="!size-5" />
-              {isSubmitting ? "Enviando..." : "Enviar para análise"}
+              {isSubmitting ? "Enviando..." : "ENVIAR PARA ANÁLISE"}
             </Button>
           </form>
         </div>
