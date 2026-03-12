@@ -2,7 +2,7 @@ import { MessageCircle, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const WHATSAPP_URL = "https://wa.me/5500000000000?text=Olá! Preciso de ajuda para recuperar minha CNH.";
-const INSTAGRAM_URL = "https://instagram.com/cnhdevolta";
+const INSTAGRAM_URL = "https://www.instagram.com/cnhdenovo";
 
 const Footer = () => {
   return (
