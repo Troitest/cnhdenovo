@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <img alt="CNH de Novo" className="h-10" src="/lovable-uploads/07dfd3e9-d442-4e26-a90d-b3c304f18932.png" />
+            <img alt="CNH de Novo" className="h-10" src="/lovable-uploads/0d0ca69b-2d5e-4911-8e8c-e5c1979688ea.png" />
             <p className="text-muted-foreground text-sm mt-2">
               Especialistas em CNH Suspensa e Cassada.
             </p>
