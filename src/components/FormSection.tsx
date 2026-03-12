@@ -81,10 +81,12 @@ const FormSection = () => {
                   <SelectValue placeholder="Selecione a situação" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="ativa">Ativa</SelectItem>
                   <SelectItem value="suspensa">Suspensa</SelectItem>
                   <SelectItem value="cassada">Cassada</SelectItem>
-                  <SelectItem value="processo">Processo de suspensão em andamento</SelectItem>
-                  <SelectItem value="nao-sei">Não tenho certeza</SelectItem>
+                  <SelectItem value="processo-suspensao">Em processo de suspensão</SelectItem>
+                  <SelectItem value="processo-cassacao">Em processo de cassação</SelectItem>
+                  <SelectItem value="nao-sei">Não sei informar</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -97,10 +99,11 @@ const FormSection = () => {
                   <SelectValue placeholder="Selecione o motivo" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="pontos">Excesso de pontos</SelectItem>
-                  <SelectItem value="lei-seca">Lei seca</SelectItem>
-                  <SelectItem value="gravissima">Multa gravíssima</SelectItem>
-                  <SelectItem value="bafometro">Recusa ao bafômetro</SelectItem>
+                  <SelectItem value="excesso-velocidade">Excesso de velocidade</SelectItem>
+                  <SelectItem value="sinal-vermelho">Avançar sinal vermelho</SelectItem>
+                  <SelectItem value="alcool">Dirigir sob efeito de álcool</SelectItem>
+                  <SelectItem value="celular">Uso de celular ao volante</SelectItem>
+                  <SelectItem value="estacionamento">Estacionamento irregular</SelectItem>
                   <SelectItem value="outro">Outro</SelectItem>
                 </SelectContent>
               </Select>
@@ -109,7 +112,38 @@ const FormSection = () => {
             {/* Data notificação */}
             <div className="space-y-2">
               <Label htmlFor="dataNotificacao">Data aproximada da notificação recebida</Label>
-              <Input id="dataNotificacao" name="dataNotificacao" type="date" />
+              <Input id="dataNotificacao" name="dataNotificacao" type="text" placeholder="dd/mm/aaaa" maxLength={10} />
+            </div>
+
+            {/* Prazo final */}
+            <div className="space-y-2">
+              <Label htmlFor="prazoFinal">Prazo final informado na notificação (se souber)</Label>
+              <Input id="prazoFinal" name="prazoFinal" type="text" placeholder="Exemplo: 15/04/2026" maxLength={10} />
+            </div>
+
+            {/* Prazo aberto */}
+            <div className="space-y-3">
+              <Label>O prazo para defesa ainda está aberto?</Label>
+              <RadioGroup name="prazoAberto" defaultValue="">
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="sim" id="prazo-sim" />
+                    <Label htmlFor="prazo-sim" className="cursor-pointer">Sim, ainda está no prazo</Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="acredito" id="prazo-acredito" />
+                    <Label htmlFor="prazo-acredito" className="cursor-pointer">Acredito que ainda esteja</Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="nao-sei" id="prazo-nao-sei" />
+                    <Label htmlFor="prazo-nao-sei" className="cursor-pointer">Não tenho certeza</Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="venceu" id="prazo-venceu" />
+                    <Label htmlFor="prazo-venceu" className="cursor-pointer">O prazo já venceu</Label>
+                  </div>
+                </div>
+              </RadioGroup>
             </div>
 
             {/* Já apresentou defesa */}
@@ -124,6 +158,39 @@ const FormSection = () => {
                   <div className="flex items-center gap-2">
                     <RadioGroupItem value="nao" id="defesa-nao" />
                     <Label htmlFor="defesa-nao" className="cursor-pointer">Não</Label>
+                  </div>
+                </div>
+              </RadioGroup>
+            </div>
+
+            {/* Marca do veículo */}
+            <div className="space-y-2">
+              <Label htmlFor="marcaVeiculo">Marca do veículo que você utiliza com mais frequência</Label>
+              <Input id="marcaVeiculo" name="marcaVeiculo" placeholder="Exemplo: Chevrolet, Volkswagen, Toyota, BMW, Mercedes" maxLength={100} />
+            </div>
+
+            {/* Modelo do veículo */}
+            <div className="space-y-2">
+              <Label htmlFor="modeloVeiculo">Modelo do veículo</Label>
+              <Input id="modeloVeiculo" name="modeloVeiculo" placeholder="Exemplo: Onix, Gol, Corolla, Hilux, Civic" maxLength={100} />
+            </div>
+
+            {/* Utiliza CNH para trabalhar */}
+            <div className="space-y-3">
+              <Label>Você utiliza a CNH para trabalhar?</Label>
+              <RadioGroup name="cnhTrabalho" defaultValue="">
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="profissional" id="trabalho-profissional" />
+                    <Label htmlFor="trabalho-profissional" className="cursor-pointer">Sim, sou motorista profissional</Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="sim-nao-profissional" id="trabalho-sim" />
+                    <Label htmlFor="trabalho-sim" className="cursor-pointer">Sim, utilizo no trabalho mas não sou motorista profissional</Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="nao" id="trabalho-nao" />
+                    <Label htmlFor="trabalho-nao" className="cursor-pointer">Não utilizo para trabalho</Label>
                   </div>
                 </div>
               </RadioGroup>
