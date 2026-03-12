@@ -1,10 +1,10 @@
-import { AlertTriangle, Briefcase, FileWarning, Scale, HelpCircle } from "lucide-react";
+import { Briefcase, ClipboardList, DollarSign, X } from "lucide-react";
 
 const problems = [
-{ icon: Briefcase, text: "Impossibilidade de trabalhar dirigindo" },
-{ icon: FileWarning, text: "Multas e processos administrativos complexos" },
-{ icon: AlertTriangle, text: "Risco de agravamento da penalidade" },
-{ icon: HelpCircle, text: "Falta de orientação jurídica especializada" }];
+{ icon: Briefcase, text: "Perda imediata da capacidade de trabalhar dirigindo" },
+{ icon: DollarSign, text: "Multas altíssimas e novos processos administrativos" },
+{ icon: X, text: "Proibição de dirigir por meses ou até anos" },
+{ icon: ClipboardList, text: "Necessidade de refazer todo o processo de habilitação" }];
 
 
 const ProblemSection = () => {
