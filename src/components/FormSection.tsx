@@ -9,7 +9,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5500000000000";
+const WHATSAPP_NUMBER = "5561936182228";
 
 const SITUACAO_LABELS: Record<string, string> = {
   ativa: "Ativa",
