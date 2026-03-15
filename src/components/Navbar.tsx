@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const WHATSAPP_URL = "https://wa.me/5500000000000?text=Olá! Preciso de ajuda para recuperar minha CNH.";
+const WHATSAPP_URL = "https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH.";
 
 const Navbar = () => {
   return (

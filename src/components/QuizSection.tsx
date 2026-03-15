@@ -5,7 +5,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MessageCircle, ShieldAlert, AlertTriangle, AlertCircle, ShieldCheck } from "lucide-react";
 
-const WHATSAPP_NUMBER = "5500000000000";
+const WHATSAPP_NUMBER = "5561936182228";
 
 type ResultType = "cassacao" | "suspensao" | "alerta" | "sem_risco" | null;
 
