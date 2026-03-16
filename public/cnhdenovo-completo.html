@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Especialistas em CNH Suspensa e Cassada. Analisamos seu caso e buscamos a melhor estratégia para recuperar seu direito de dirigir.">
+    <title>CNH de Novo – Especialistas em CNH Suspensa e Cassada</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================
+   CSS VARIABLES (Design Tokens)
+   ========================================== */
+:root {
+  --bg: hsl(0, 0%, 5%);
+  --bg-card: hsl(0, 0%, 8%);
+  --fg: hsl(0, 0%, 95%);
+  --fg-muted: hsl(0, 0%, 60%);
+  --primary: hsl(48, 100%, 50%);
+  --primary-fg: hsl(0, 0%, 5%);
+  --secondary: hsl(0, 0%, 12%);
+  --border: hsl(0, 0%, 18%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --purple: hsl(270, 70%, 50%);
+  --green: hsl(142, 70%, 45%);
+  --radius: 0.75rem;
+  --gradient-primary: linear-gradient(135deg, hsl(48, 100%, 50%), hsl(40, 100%, 45%));
+  --shadow-glow: 0 0 40px hsla(48, 100%, 50%, 0.15);
+  --shadow-card: 0 4px 24px hsla(0, 0%, 0%, 0.4);
+  --font-heading: 'Russo One', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ==========================================
+   RESET & BASE
+   ========================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+/* ==========================================
+   UTILITIES
+   ========================================== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+.text-gradient {
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-padding { padding: 5rem 0; }
+@media (min-width: 768px) { .section-padding { padding: 7rem 0; } }
+
+.section-dark { background: var(--bg); }
+.section-alt { background: hsla(0, 0%, 12%, 0.5); }
+
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-header h2 { font-size: 1.875rem; font-weight: 500; margin-bottom: 1rem; }
+@media (min-width: 768px) { .section-header h2 { font-size: 2.25rem; } }
+.section-header p { color: var(--fg-muted); font-size: 1.125rem; }
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 2rem; border-radius: var(--radius);
+  font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  cursor: pointer; border: none; transition: all 0.3s; text-decoration: none;
+}
+.btn-hero { background: var(--gradient-primary); color: var(--primary-fg); }
+.btn-hero:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-hero-outline { background: transparent; color: var(--fg); border: 2px solid var(--border); }
+.btn-hero-outline:hover { border-color: var(--primary); color: var(--primary); }
+.btn-whatsapp { background: var(--green); color: #fff; }
+.btn-whatsapp:hover { background: hsl(142, 70%, 40%); }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.75rem; }
+.btn-xl { padding: 1rem 2.5rem; font-size: 0.9rem; }
+.btn-full { width: 100%; justify-content: center; }
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: hsla(0, 0%, 5%, 0.8); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar .container { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.navbar-logo img { height: 40px; }
+.hide-mobile { display: none; }
+@media (min-width: 640px) { .hide-mobile { display: inline; } }
+
+/* ==========================================
+   HERO
+   ========================================== */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, hsla(0,0%,5%,0.8), hsla(0,0%,5%,0.9), var(--bg)); }
+.hero-content { position: relative; z-index: 10; max-width: 48rem; padding: 5rem 0; }
+.hero-badge {
+  display: inline-block; margin-bottom: 1.5rem; padding: 0.5rem 1rem;
+  border-radius: 9999px; border: 1px solid hsla(48, 100%, 50%, 0.3);
+  background: hsla(48, 100%, 50%, 0.1); font-size: 0.875rem; font-weight: 600; color: var(--primary);
+}
+.hero h1 { font-size: 2.5rem; line-height: 1.15; margin-bottom: 1.5rem; font-weight: 500; }
+@media (min-width: 768px) { .hero h1 { font-size: 3.25rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 3.75rem; } }
+.hero p { font-size: 1.125rem; color: var(--fg-muted); margin-bottom: 2.5rem; max-width: 42rem; line-height: 1.7; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; }
+.hero-line { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--gradient-primary); }
+
+/* ==========================================
+   CARDS & GRIDS
+   ========================================== */
+.card {
+  padding: 1.5rem; border-radius: var(--radius); background: var(--bg-card);
+  border: 1px solid var(--border); box-shadow: var(--shadow-card); transition: border-color 0.3s;
+}
+.card:hover { border-color: hsla(48, 100%, 50%, 0.3); }
+.card-icon {
+  width: 2.5rem; height: 2.5rem; border-radius: 0.5rem;
+  background: hsla(48, 100%, 50%, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.card-icon svg { width: 1.25rem; height: 1.25rem; color: var(--primary); }
+.card-center { text-align: center; }
+.card-center .card-icon { width: 3.5rem; height: 3.5rem; margin: 0 auto 1rem; border-radius: var(--radius); }
+.card-center .card-icon svg { width: 1.75rem; height: 1.75rem; }
+
+.problem-card { display: flex; align-items: flex-start; gap: 1rem; }
+.problem-card p { font-weight: 500; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.grid-4 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+
+/* ==========================================
+   HIGHLIGHT BOX
+   ========================================== */
+.highlight-box {
+  max-width: 48rem; margin: 0 auto; text-align: center; padding: 2rem;
+  border-radius: 1rem; border: 1px solid hsla(48, 100%, 50%, 0.2); background: hsla(48, 100%, 50%, 0.05);
+}
+.highlight-box p { font-size: 1.125rem; font-weight: 500; line-height: 1.6; }
+.highlight-box .accent { color: var(--primary); font-weight: 700; }
+
+/* ==========================================
+   QUIZ
+   ========================================== */
+.quiz-box {
+  max-width: 42rem; margin: 0 auto; padding: 1.5rem; border-radius: 1rem;
+  background: var(--bg-card); border: 1px solid var(--border); box-shadow: var(--shadow-card);
+}
+@media (min-width: 768px) { .quiz-box { padding: 2rem; } }
+.quiz-question { margin-bottom: 2rem; }
+.quiz-question label.question-title { display: block; font-weight: 500; font-size: 1rem; margin-bottom: 0.75rem; }
+.radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.radio-option, .checkbox-option { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; }
+.radio-option input, .checkbox-option input { accent-color: var(--primary); width: 1rem; height: 1rem; }
+
+/* ==========================================
+   QUIZ RESULT
+   ========================================== */
+.result-box {
+  max-width: 42rem; margin: 0 auto; padding: 1.5rem; border-radius: 1rem;
+  background: var(--bg-card); border-width: 2px; border-style: solid; box-shadow: var(--shadow-card); text-align: center;
+}
+@media (min-width: 768px) { .result-box { padding: 2rem; } }
+.result-badge {
+  display: inline-block; padding: 0.375rem 1rem; border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
+}
+.result-title { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; }
+@media (min-width: 768px) { .result-title { font-size: 1.5rem; } }
+.result-text { color: var(--fg-muted); margin-bottom: 1.5rem; }
+.result-consequences { text-align: left; margin-bottom: 1.5rem; }
+.result-consequences h4 { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; }
+.result-consequences li { color: var(--fg-muted); font-size: 0.875rem; padding-left: 1rem; margin-bottom: 0.375rem; }
+.urgency-box {
+  padding: 1rem; border-radius: var(--radius); text-align: center;
+  font-weight: 700; font-size: 0.875rem; text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.reset-link {
+  display: block; margin-top: 1rem; font-size: 0.875rem; color: var(--fg-muted);
+  text-decoration: underline; cursor: pointer; background: none; border: none; width: 100%;
+}
+.reset-link:hover { color: var(--fg); }
+
+/* ==========================================
+   CNH RULES
+   ========================================== */
+.rules-heading { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+.rules-heading svg { width: 1.75rem; height: 1.75rem; flex-shrink: 0; }
+.rules-heading h2, .rules-heading h3 { font-size: 1.5rem; font-weight: 500; }
+@media (min-width: 768px) { .rules-heading h2 { font-size: 1.875rem; } }
+.points-card { padding: 1rem; border-radius: var(--radius); background: var(--bg-card); border: 1px solid var(--border); text-align: center; }
+.points-card .points { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+.points-card .desc { color: var(--fg-muted); font-size: 0.875rem; }
+.rules-list { display: grid; gap: 0.5rem; list-style: none; }
+@media (min-width: 640px) { .rules-list { grid-template-columns: repeat(2, 1fr); } }
+.rules-list li { display: flex; align-items: flex-start; gap: 0.5rem; color: var(--fg-muted); font-size: 0.875rem; }
+.info-box { padding: 1rem; border-radius: var(--radius); background: var(--bg-card); border: 1px solid var(--border); color: var(--fg-muted); font-size: 0.875rem; }
+.info-box strong { color: var(--fg); font-weight: 500; }
+
+/* ==========================================
+   URGENT SECTION
+   ========================================== */
+.urgent-section { position: relative; overflow: hidden; }
+.urgent-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 600px; border-radius: 50%;
+  background: hsla(48, 100%, 50%, 0.05); filter: blur(48px);
+}
+.urgent-content { position: relative; z-index: 10; max-width: 42rem; margin: 0 auto; text-align: center; }
+.urgent-icon {
+  width: 4rem; height: 4rem; margin: 0 auto 1.5rem; border-radius: 50%;
+  background: hsla(48, 100%, 50%, 0.1); display: flex; align-items: center; justify-content: center;
+}
+.urgent-icon svg { width: 2rem; height: 2rem; color: var(--primary); }
+
+/* ==========================================
+   FORM
+   ========================================== */
+.form-section { max-width: 42rem; margin: 0 auto; }
+.form-box { padding: 1.5rem; border-radius: 1rem; background: var(--bg-card); border: 1px solid var(--border); box-shadow: var(--shadow-card); }
+@media (min-width: 768px) { .form-box { padding: 2rem; } }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.5rem; }
+.form-group label .required { color: var(--destructive); }
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 0.625rem 0.875rem; border-radius: calc(var(--radius) - 2px);
+  background: var(--bg); border: 1px solid var(--border); color: var(--fg);
+  font-family: var(--font-body); font-size: 0.875rem; transition: border-color 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px hsla(48, 100%, 50%, 0.15); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--fg-muted); }
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0.75rem center; padding-right: 2rem;
+}
+.checkbox-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* ==========================================
+   CONTACT
+   ========================================== */
+.contact-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.site-footer { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+@media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; } }
+.footer-logo p { color: var(--fg-muted); font-size: 0.875rem; margin-top: 0.5rem; }
+.footer-social { display: flex; gap: 1rem; }
+.social-icon {
+  width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: var(--secondary);
+  display: flex; align-items: center; justify-content: center; color: var(--fg-muted); transition: all 0.3s;
+}
+.social-icon:hover { color: var(--primary); background: hsla(48, 100%, 50%, 0.1); }
+.social-icon svg { width: 1.25rem; height: 1.25rem; }
+.footer-bottom { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; color: var(--fg-muted); font-size: 0.75rem; }
+
+/* ==========================================
+   ANIMAÇÃO FADE IN
+   ========================================== */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.4s ease-out; }
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="navbar-logo">
+            <!-- Substitua pelo caminho da sua logo -->
+            <span style="color: var(--primary); font-family: var(--font-heading); font-size: 1.25rem;">CNH de Novo</span>
+        </a>
+        <a href="https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH." target="_blank" rel="noopener noreferrer" class="btn btn-hero btn-sm">
+            <!-- Ícone WhatsApp (SVG inline) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span class="hide-mobile">Fale conosco</span>
+        </a>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero">
+    <div class="hero-bg">
+        <!-- Substitua pela URL da sua imagem de fundo -->
+        <div style="width:100%;height:100%;background:hsl(0,0%,10%);"></div>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">⚠️ Especialistas em CNH Suspensa e Cassada</div>
+            <h1>Perdeu a CNH? <span class="text-gradient">Nós ajudamos você a ter sua CNH de novo.</span></h1>
+            <p>Especialistas em defesa de motoristas com CNH suspensa ou cassada. Analisamos seu caso e buscamos a melhor estratégia para recuperar seu direito de dirigir.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Falar no WhatsApp agora
+                </a>
+                <a href="#formulario" class="btn btn-hero-outline btn-xl" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'});return false;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Analisar meu caso
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-line"></div>
+</section>
+
+<!-- ============================================================
+     PROBLEM SECTION
+     ============================================================ -->
+<section class="section-alt section-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2>CNH suspensa ou cassada pode trazer <span class="text-gradient">grandes prejuízos</span></h2>
+        </div>
+        <div class="grid-2" style="max-width: 56rem; margin: 0 auto 3rem;">
+            <!-- Card 1 -->
+            <div class="card problem-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <p>Perda imediata da capacidade de trabalhar dirigindo</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card problem-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <p>Multas altíssimas e novos processos administrativos</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card problem-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                </div>
+                <p>Proibição de dirigir por meses ou até anos</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="card problem-card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                </div>
+                <p>Necessidade de refazer todo o processo de habilitação</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: var(--fg-muted); max-width: 42rem; margin: 0 auto; font-size: 1.125rem; line-height: 1.7;">
+            Muitas pessoas perdem o prazo de defesa ou apresentam recursos errados. Com orientação adequada, é possível contestar penalidades e buscar a recuperação da sua CNH.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================
+     SOLUTION SECTION
+     ============================================================ -->
+<section class="section-dark section-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2>Como podemos <span class="text-gradient">ajudar você</span></h2>
+        </div>
+        <div class="grid-4" style="max-width: 64rem; margin: 0 auto 3.5rem;">
+            <!-- Análise -->
+            <div class="card card-center">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3 style="font-weight:500; font-size:1.125rem; margin-bottom:0.5rem;">Análise completa</h3>
+                <p style="color: var(--fg-muted); font-size: 0.875rem;">Análise completa do processo administrativo</p>
+            </div>
+            <!-- Defesa -->
+            <div class="card card-center">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3 style="font-weight:500; font-size:1.125rem; margin-bottom:0.5rem;">Defesa e recursos</h3>
+                <p style="color: var(--fg-muted); font-size: 0.875rem;">Elaboração de defesa e recursos</p>
+            </div>
+            <!-- Acompanhamento -->
+            <div class="card card-center">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3 style="font-weight:500; font-size:1.125rem; margin-bottom:0.5rem;">Acompanhamento</h3>
+                <p style="color: var(--fg-muted); font-size: 0.875rem;">Acompanhamento do processo junto ao DETRAN</p>
+            </div>
+            <!-- Estratégia -->
+            <div class="card card-center">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <h3 style="font-weight:500; font-size:1.125rem; margin-bottom:0.5rem;">Estratégia jurídica</h3>
+                <p style="color: var(--fg-muted); font-size: 0.875rem;">Estratégia jurídica para recuperar sua CNH</p>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <p>"Mesmo que sua CNH esteja suspensa ou cassada, ainda podem existir <span class="accent">caminhos legais</span> para recuperar o direito de dirigir."</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     QUIZ SECTION
+     ============================================================ -->
+<section id="quiz" class="section-dark section-padding">
+    <div class="container">
+        <div class="section-header">
+            <p style="color: var(--primary); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;">Análise da situação da sua CNH</p>
+            <h2>DESCUBRA AGORA SE SUA CNH PODE SER <span class="text-gradient">SUSPENSA OU CASSADA</span></h2>
+            <p>Responda algumas perguntas rápidas e veja se sua carteira de motorista pode estar em risco.</p>
+        </div>
+        <div class="quiz-box" id="quiz-container">
+            <!-- O quiz é renderizado dinamicamente via JavaScript (veja o script no final) -->
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CNH RULES SECTION
+     ============================================================ -->
+<section class="section-alt section-padding">
+    <div class="container">
+        <div style="max-width: 48rem; margin: 0 auto;">
+            <!-- Regras de Suspensão -->
+            <div style="margin-bottom: 3rem;">
+                <div class="rules-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary);"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                    <h2>REGRAS DE SUSPENSÃO DA CNH</h2>
+                </div>
+                <p style="color: var(--fg-muted); margin-bottom: 1.5rem;">Uma das principais causas de suspensão é o excesso de pontos no período de 12 meses. Atualmente os limites são:</p>
+                <div class="grid-3" style="margin-bottom: 1.5rem;">
+                    <div class="points-card"><p class="points">40 pontos</p><p class="desc">quando não há infração gravíssima</p></div>
+                    <div class="points-card"><p class="points">30 pontos</p><p class="desc">quando existe uma infração gravíssima</p></div>
+                    <div class="points-card"><p class="points">20 pontos</p><p class="desc">quando existem duas ou mais infrações gravíssimas</p></div>
+                </div>
+                <p style="color: var(--fg-muted); font-size: 0.875rem; font-style: italic;">Motoristas profissionais com atividade remunerada registrada na CNH possuem limite de 40 pontos independentemente da quantidade de infrações gravíssimas.</p>
+            </div>
+
+            <!-- Infrações com suspensão direta -->
+            <div style="margin-bottom: 3rem;">
+                <div class="rules-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--destructive);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <h3>INFRAÇÕES QUE GERAM SUSPENSÃO DIRETA</h3>
+                </div>
+                <ul class="rules-list">
+                    <li><span style="color: var(--destructive);">•</span> Dirigir sob influência de álcool ou drogas</li>
+                    <li><span style="color: var(--destructive);">•</span> Recusar teste do bafômetro</li>
+                    <li><span style="color: var(--destructive);">•</span> Participar de racha</li>
+                    <li><span style="color: var(--destructive);">•</span> Realizar manobras perigosas</li>
+                    <li><span style="color: var(--destructive);">•</span> Excesso de velocidade acima de 50%</li>
+                    <li><span style="color: var(--destructive);">•</span> Omitir socorro em acidente</li>
+                    <li><span style="color: var(--destructive);">•</span> Transpor bloqueio viário</li>
+                </ul>
+            </div>
+
+            <!-- Cassação -->
+            <div>
+                <div class="rules-heading">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--purple);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <h3>CASSAÇÃO DA CNH</h3>
+                </div>
+                <p style="color: var(--fg-muted); margin-bottom: 1rem;">Principais causas previstas no Art. 263 do Código de Trânsito Brasileiro:</p>
+                <ul class="rules-list" style="margin-bottom: 1.5rem;">
+                    <li><span style="color: var(--purple);">•</span> Dirigir com a CNH suspensa</li>
+                    <li><span style="color: var(--purple);">•</span> Reincidir em infrações graves no período de 12 meses</li>
+                    <li><span style="color: var(--purple);">•</span> Participar de racha</li>
+                    <li><span style="color: var(--purple);">•</span> Realizar manobras perigosas</li>
+                    <li><span style="color: var(--purple);">•</span> Permitir que pessoa sem CNH conduza o veículo</li>
+                    <li><span style="color: var(--purple);">•</span> Fraude na obtenção da CNH</li>
+                    <li><span style="color: var(--purple);">•</span> Condenação judicial por crime de trânsito</li>
+                </ul>
+                <div class="info-box">
+                    <p><strong>Consequência:</strong> o motorista fica proibido de dirigir por 2 anos e depois precisa refazer todo o processo de habilitação.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     URGENT SECTION
+     ============================================================ -->
+<section class="section-alt section-padding urgent-section">
+    <div class="urgent-glow"></div>
+    <div class="container">
+        <div class="urgent-content">
+            <div class="urgent-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h2 style="font-size: 1.875rem; font-weight: 500; margin-bottom: 1.5rem;">Não espere <span class="text-gradient">piorar a situação</span> da sua CNH</h2>
+            <p style="font-size: 1.125rem; color: var(--fg-muted); margin-bottom: 2.5rem; line-height: 1.7;">
+                Quanto antes seu caso for analisado, maiores são as chances de construir uma defesa eficiente.
+            </p>
+            <a href="https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                Falar com especialista no WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FORM SECTION
+     ============================================================ -->
+<section id="formulario" class="section-dark section-padding">
+    <div class="container">
+        <div class="form-section">
+            <div class="section-header">
+                <h2>Solicite a <span class="text-gradient">análise do seu caso</span></h2>
+                <p>Preencha as informações abaixo para avaliarmos sua situação.</p>
+            </div>
+            <form id="analise-form" class="form-box">
+                <div class="form-group">
+                    <label>Nome completo <span class="required">*</span></label>
+                    <input type="text" name="nome" class="form-input" placeholder="Seu nome completo" required maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label>Telefone / WhatsApp <span class="required">*</span></label>
+                    <input type="tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" required maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Cidade e Estado <span class="required">*</span></label>
+                    <input type="text" name="cidade" class="form-input" placeholder="Ex: São Paulo - SP" required maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label>Número da CNH <span class="required">*</span></label>
+                    <input type="text" name="numeroCnh" class="form-input" placeholder="Número da sua CNH" required maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Categoria da CNH <span class="required">*</span></label>
+                    <div class="checkbox-row">
+                        <label class="checkbox-option"><input type="checkbox" name="categoria" value="A"> A</label>
+                        <label class="checkbox-option"><input type="checkbox" name="categoria" value="B"> B</label>
+                        <label class="checkbox-option"><input type="checkbox" name="categoria" value="C"> C</label>
+                        <label class="checkbox-option"><input type="checkbox" name="categoria" value="D"> D</label>
+                        <label class="checkbox-option"><input type="checkbox" name="categoria" value="E"> E</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Situação da CNH <span class="required">*</span></label>
+                    <select name="situacao" class="form-select" required>
+                        <option value="">Selecione a situação</option>
+                        <option value="Ativa">Ativa</option>
+                        <option value="Suspensa">Suspensa</option>
+                        <option value="Cassada">Cassada</option>
+                        <option value="Em processo de suspensão">Em processo de suspensão</option>
+                        <option value="Em processo de cassação">Em processo de cassação</option>
+                        <option value="Não sei informar">Não sei informar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Motivo da penalidade <span class="required">*</span></label>
+                    <select name="motivo" class="form-select" required>
+                        <option value="">Selecione o motivo</option>
+                        <option value="Excesso de velocidade">Excesso de velocidade</option>
+                        <option value="Avançar sinal vermelho">Avançar sinal vermelho</option>
+                        <option value="Dirigir sob efeito de álcool">Dirigir sob efeito de álcool</option>
+                        <option value="Uso de celular ao volante">Uso de celular ao volante</option>
+                        <option value="Estacionamento irregular">Estacionamento irregular</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data aproximada da notificação recebida</label>
+                    <input type="text" name="dataNotificacao" class="form-input" placeholder="dd/mm/aaaa" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>Prazo final informado na notificação (se souber)</label>
+                    <input type="text" name="prazoFinal" class="form-input" placeholder="Exemplo: 15/04/2026" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>O prazo para defesa ainda está aberto?</label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="prazoAberto" value="Sim, ainda está no prazo"> Sim, ainda está no prazo</label>
+                        <label class="radio-option"><input type="radio" name="prazoAberto" value="Acredito que ainda esteja"> Acredito que ainda esteja</label>
+                        <label class="radio-option"><input type="radio" name="prazoAberto" value="Não tenho certeza"> Não tenho certeza</label>
+                        <label class="radio-option"><input type="radio" name="prazoAberto" value="O prazo já venceu"> O prazo já venceu</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Você já apresentou defesa ou recurso? <span class="required">*</span></label>
+                    <div class="radio-group" style="flex-direction: row; gap: 1.5rem;">
+                        <label class="radio-option"><input type="radio" name="defesa" value="Sim" required> Sim</label>
+                        <label class="radio-option"><input type="radio" name="defesa" value="Não"> Não</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Marca do veículo <span class="required">*</span></label>
+                    <input type="text" name="marcaVeiculo" class="form-input" placeholder="Ex: Chevrolet, Volkswagen, Toyota" required maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label>Modelo do veículo <span class="required">*</span></label>
+                    <input type="text" name="modeloVeiculo" class="form-input" placeholder="Ex: Onix, Gol, Corolla" required maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label>Você utiliza a CNH para trabalhar? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="cnhTrabalho" value="Sim, sou motorista profissional" required> Sim, sou motorista profissional</label>
+                        <label class="radio-option"><input type="radio" name="cnhTrabalho" value="Sim, utilizo no trabalho mas não sou motorista profissional"> Sim, utilizo no trabalho mas não sou motorista profissional</label>
+                        <label class="radio-option"><input type="radio" name="cnhTrabalho" value="Não utilizo para trabalho"> Não utilizo para trabalho</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Conte brevemente o que aconteceu (opcional)</label>
+                    <textarea name="mensagem" class="form-textarea" placeholder="Descreva sua situação..." maxlength="1000"></textarea>
+                </div>
+                <button type="submit" class="btn btn-hero btn-xl btn-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    ENVIAR PARA ANÁLISE
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+<section class="section-alt section-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2>Fale conosco <span class="text-gradient">agora</span></h2>
+        </div>
+        <div class="contact-buttons">
+            <a href="https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+            </a>
+            <a href="https://www.instagram.com/cnhdenovo" target="_blank" rel="noopener noreferrer" class="btn btn-hero-outline btn-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span style="color: var(--primary); font-family: var(--font-heading); font-size: 1.25rem;">CNH de Novo</span>
+                <p>Especialistas em CNH Suspensa e Cassada.</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH." target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/cnhdenovo" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CNH de Novo. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT — Quiz interativo
+     ============================================================ -->
+<script>
+/**
+ * QUIZ INTERATIVO
+ * ----------------
+ * Este script renderiza um quiz de 5 perguntas dentro do #quiz-container.
+ * Com base nas respostas, calcula um resultado (cassação, suspensão, alerta ou sem risco)
+ * e gera um link para o WhatsApp com as respostas do usuário.
+ */
+(function () {
+  // Número do WhatsApp (com código do país, sem +)
+  var WHATSAPP_NUMBER = '5561936182228';
+
+  // Elemento container onde o quiz será renderizado
+  var container = document.getElementById('quiz-container');
+  if (!container) return;
+
+  // Estado do quiz — armazena as respostas do usuário
+  var state = {
+    pontos: '',           // Pergunta 1: quantos pontos na CNH
+    gravissimas: '',      // Pergunta 2: infrações gravíssimas
+    notificacao: '',      // Pergunta 3: recebeu notificação do DETRAN
+    dirigiuSuspensa: '',  // Pergunta 4: dirigiu com CNH suspensa
+    infracoes: []         // Pergunta 5: infrações cometidas (múltipla escolha)
+  };
+
+  // Opções da pergunta 5 (checkboxes)
+  var infracoesOptions = [
+    'Dirigir sob efeito de álcool ou drogas',
+    'Recusar teste do bafômetro',
+    'Participar de racha',
+    'Realizar manobra perigosa',
+    'Excesso de velocidade acima de 50%',
+    'Omitir socorro em acidente',
+    'Ultrapassagem perigosa',
+    'Transpor bloqueio viário',
+    'Nenhuma dessas',
+    'Não sei'
+  ];
+
+  /**
+   * calculateResult()
+   * ------------------
+   * Lógica de decisão baseada no Código de Trânsito Brasileiro (CTB).
+   * Retorna: 'cassacao' | 'suspensao' | 'alerta' | 'sem_risco'
+   */
+  function calculateResult() {
+    var sel = state.infracoes;
+    var hasAlcool = sel.indexOf('Dirigir sob efeito de álcool ou drogas') >= 0;
+    var hasRacha = sel.indexOf('Participar de racha') >= 0;
+    var hasManobra = sel.indexOf('Realizar manobra perigosa') >= 0;
+    var hasBafometro = sel.indexOf('Recusar teste do bafômetro') >= 0;
+    var hasVelocidade = sel.indexOf('Excesso de velocidade acima de 50%') >= 0;
+    var dirigiuSusp = state.dirigiuSuspensa === 'Sim';
+    var recebeuNotif = state.notificacao === 'Sim';
+
+    // CASSAÇÃO — penalidade mais grave
+    if (dirigiuSusp || hasRacha || hasManobra || (hasAlcool && recebeuNotif)) return 'cassacao';
+
+    // SUSPENSÃO — baseada em pontos e infrações
+    if (state.pontos === '40 pontos ou mais') return 'suspensao';
+    if (state.pontos === 'Entre 30 e 39 pontos' && (state.gravissimas === 'Uma' || state.gravissimas === 'Duas ou mais')) return 'suspensao';
+    if (state.pontos === 'Entre 20 e 29 pontos' && state.gravissimas === 'Duas ou mais') return 'suspensao';
+    if (hasBafometro || hasVelocidade || recebeuNotif) return 'suspensao';
+
+    // ALERTA — situação intermediária
+    if (state.pontos === 'Entre 20 e 29 pontos' || state.pontos === 'Entre 30 e 39 pontos') return 'alerta';
+    if (state.pontos === 'Não sei' || state.gravissimas === 'Não sei' || sel.indexOf('Não sei') >= 0) return 'alerta';
+
+    // SEM RISCO — tudo dentro do normal
+    if (state.pontos === 'Até 19 pontos' && state.gravissimas === 'Nenhuma' && state.notificacao === 'Não' && (sel.indexOf('Nenhuma dessas') >= 0 || sel.length === 0)) return 'sem_risco';
+
+    return 'alerta';
+  }
+
+  // Configuração visual de cada resultado
+  var resultConfig = {
+    cassacao: {
+      badge: 'ALERTA MÁXIMO',
+      badgeColor: 'background:hsl(270,70%,50%);color:#fff;',
+      borderColor: 'hsl(270,70%,50%)',
+      accentColor: 'hsl(270,70%,50%)',
+      title: 'VOCÊ PODE TER A CNH CASSADA',
+      text: 'A cassação da CNH é uma penalidade extremamente grave.',
+      consequences: ['Proibição de dirigir por 2 anos', 'Necessidade de refazer todo o processo de habilitação', 'Novos exames médicos, psicológicos, teóricos e práticos'],
+      urgency: 'MAS NÃO SE PREOCUPE. EM MUITOS CASOS AINDA EXISTE POSSIBILIDADE DE DEFESA OU RECURSO ADMINISTRATIVO.',
+      buttonLabel: 'ANALISAR MINHA CNH NO WHATSAPP',
+      isGreen: true
+    },
+    suspensao: {
+      badge: 'ATENÇÃO',
+      badgeColor: 'background:var(--destructive);color:#fff;',
+      borderColor: 'var(--destructive)',
+      accentColor: 'var(--destructive)',
+      title: 'VOCÊ TERÁ A CNH SUSPENSA',
+      text: 'Seu histórico indica forte risco de processo de suspensão da CNH.',
+      consequences: ['Proibição temporária de dirigir', 'Curso obrigatório de reciclagem', 'Processo administrativo no DETRAN'],
+      urgency: 'MAS NÃO SE PREOCUPE, EM MUITOS CASOS AINDA É POSSÍVEL RECORRER E EVITAR A SUSPENSÃO.',
+      buttonLabel: 'FALAR COM ESPECIALISTA',
+      isGreen: true
+    },
+    alerta: {
+      badge: 'ATENÇÃO',
+      badgeColor: 'background:var(--primary);color:var(--primary-fg);',
+      borderColor: 'var(--primary)',
+      accentColor: 'var(--primary)',
+      title: 'SUA CNH PODE ESTAR PRÓXIMA DO LIMITE DE SUSPENSÃO',
+      text: 'Se novas infrações ocorrerem, um processo administrativo pode ser aberto.',
+      consequences: null,
+      urgency: 'VERIFIQUE SUA SITUAÇÃO ANTES QUE O PROBLEMA AUMENTE.',
+      buttonLabel: 'VERIFICAR MINHA CNH',
+      isGreen: false
+    },
+    sem_risco: {
+      badge: 'SEM RISCO NO MOMENTO',
+      badgeColor: 'background:hsl(142,70%,45%);color:#fff;',
+      borderColor: 'hsl(142,70%,45%)',
+      accentColor: 'hsl(142,70%,45%)',
+      title: 'ATÉ O MOMENTO SUA CNH NÃO APRESENTA RISCO DE SUSPENSÃO',
+      text: 'Mesmo assim é importante acompanhar regularmente sua pontuação.',
+      consequences: null,
+      urgency: '',
+      buttonLabel: 'FALAR CONOSCO',
+      isGreen: false
+    }
+  };
+
+  /**
+   * buildWhatsAppUrl()
+   * -------------------
+   * Monta a URL do WhatsApp com todas as respostas do quiz.
+   */
+  function buildWhatsAppUrl(resultKey) {
+    var label = resultKey === 'cassacao' ? 'Cassação' : resultKey === 'suspensao' ? 'Suspensão' : resultKey === 'alerta' ? 'Alerta' : 'Sem risco';
+    var msg = 'Olá, acabei de fazer a análise da minha CNH no site e gostaria de verificar minha situação.\n\nMinhas respostas foram:\n\nPontos na CNH: ' + (state.pontos || 'Não respondido') + '\nInfrações gravíssimas: ' + (state.gravissimas || 'Não respondido') + '\nNotificação do DETRAN: ' + (state.notificacao || 'Não respondido') + '\nDirigir com CNH suspensa: ' + (state.dirigiuSuspensa || 'Não respondido') + '\nInfrações cometidas: ' + (state.infracoes.length ? state.infracoes.join(', ') : 'Não respondido') + '\nResultado apresentado: ' + label + '\n\nGostaria de saber se existe possibilidade de defesa ou recurso.';
+    return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+  }
+
+  /**
+   * renderRadioGroup()
+   * -------------------
+   * Gera o HTML de um grupo de radio buttons.
+   */
+  function renderRadioGroup(name, options, currentValue) {
+    return options.map(function (opt) {
+      var checked = currentValue === opt ? ' checked' : '';
+      return '<label class="radio-option"><input type="radio" name="' + name + '" value="' + opt + '"' + checked + '> ' + opt + '</label>';
+    }).join('');
+  }
+
+  /**
+   * renderQuiz()
+   * -------------
+   * Renderiza as 5 perguntas do quiz no container.
+   */
+  function renderQuiz() {
+    var isComplete = state.pontos && state.gravissimas && state.notificacao && state.dirigiuSuspensa && state.infracoes.length > 0;
+    var html = '';
+
+    // Pergunta 1
+    html += '<div class="quiz-question"><label class="question-title">1. Quantos pontos você possui na CNH nos últimos 12 meses?</label><div class="radio-group">';
+    html += renderRadioGroup('pontos', ['Até 19 pontos', 'Entre 20 e 29 pontos', 'Entre 30 e 39 pontos', '40 pontos ou mais', 'Não sei'], state.pontos);
+    html += '</div></div>';
+
+    // Pergunta 2
+    html += '<div class="quiz-question"><label class="question-title">2. Quantas infrações gravíssimas você teve nos últimos 12 meses?</label><div class="radio-group">';
+    html += renderRadioGroup('gravissimas', ['Nenhuma', 'Uma', 'Duas ou mais', 'Não sei'], state.gravissimas);
+    html += '</div></div>';
+
+    // Pergunta 3
+    html += '<div class="quiz-question"><label class="question-title">3. Você recebeu alguma notificação do DETRAN informando processo de suspensão da CNH?</label><div class="radio-group">';
+    html += renderRadioGroup('notificacao', ['Sim', 'Não', 'Não tenho certeza'], state.notificacao);
+    html += '</div></div>';
+
+    // Pergunta 4
+    html += '<div class="quiz-question"><label class="question-title">4. Você já dirigiu algum veículo enquanto sua CNH estava suspensa?</label><div class="radio-group">';
+    html += renderRadioGroup('dirigiuSuspensa', ['Sim', 'Não', 'Não sei'], state.dirigiuSuspensa);
+    html += '</div></div>';
+
+    // Pergunta 5 (checkboxes — múltipla escolha)
+    html += '<div class="quiz-question"><label class="question-title">5. Você cometeu alguma dessas infrações?</label><p style="font-size:0.875rem;color:var(--fg-muted);margin-bottom:0.5rem;">Selecione todas que se aplicam</p><div class="checkbox-group">';
+    infracoesOptions.forEach(function (inf) {
+      var checked = state.infracoes.indexOf(inf) >= 0 ? ' checked' : '';
+      html += '<label class="checkbox-option"><input type="checkbox" name="infracoes" value="' + inf + '"' + checked + '> ' + inf + '</label>';
+    });
+    html += '</div></div>';
+
+    // Botão de envio
+    html += '<button type="button" id="quiz-submit" class="btn btn-hero btn-xl btn-full"' + (isComplete ? '' : ' disabled style="opacity:0.5;cursor:not-allowed;"') + '>VER RESULTADO</button>';
+
+    container.innerHTML = html;
+    bindQuizEvents();
+  }
+
+  /**
+   * renderResult()
+   * ---------------
+   * Mostra o resultado do quiz com estilização específica para cada tipo.
+   */
+  function renderResult(resultKey) {
+    var cfg = resultConfig[resultKey];
+    var html = '<div class="result-box fade-in" style="border-color:' + cfg.borderColor + ';">';
+    html += '<div style="text-align:center;"><span class="result-badge" style="' + cfg.badgeColor + '">' + cfg.badge + '</span></div>';
+    html += '<h3 class="result-title" style="color:' + cfg.accentColor + ';">' + cfg.title + '</h3>';
+    html += '<p class="result-text">' + cfg.text + '</p>';
+
+    if (cfg.consequences) {
+      html += '<div class="result-consequences"><h4>Consequências possíveis:</h4><ul>';
+      cfg.consequences.forEach(function (c) {
+        html += '<li><span style="color:' + cfg.accentColor + ';">•</span> ' + c + '</li>';
+      });
+      html += '</ul></div>';
+    }
+
+    if (cfg.urgency) {
+      html += '<div class="urgency-box" style="background:' + cfg.accentColor + '15;border:1px solid ' + cfg.accentColor + '40;color:' + cfg.accentColor + ';">' + cfg.urgency + '</div>';
+    }
+
+    var btnClass = cfg.isGreen ? 'btn-whatsapp' : 'btn-hero';
+    html += '<a href="' + buildWhatsAppUrl(resultKey) + '" target="_blank" rel="noopener noreferrer" class="btn ' + btnClass + ' btn-xl btn-full">';
+    html += '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> ';
+    html += cfg.buttonLabel + '</a>';
+
+    html += '<button type="button" id="quiz-reset" class="reset-link">Refazer análise</button>';
+    html += '</div>';
+
+    container.innerHTML = html;
+
+    // Evento do botão "Refazer análise"
+    document.getElementById('quiz-reset').addEventListener('click', function () {
+      state = { pontos: '', gravissimas: '', notificacao: '', dirigiuSuspensa: '', infracoes: [] };
+      renderQuiz();
+    });
+  }
+
+  /**
+   * bindQuizEvents()
+   * -----------------
+   * Vincula os event listeners aos inputs do quiz.
+   */
+  function bindQuizEvents() {
+    // Radio buttons — atualiza o state e re-renderiza
+    container.querySelectorAll('input[type="radio"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        state[this.name] = this.value;
+        renderQuiz();
+      });
+    });
+
+    // Checkboxes — lógica especial: "Nenhuma dessas" e "Não sei" são exclusivos
+    container.querySelectorAll('input[name="infracoes"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        var val = this.value;
+        if (val === 'Nenhuma dessas' || val === 'Não sei') {
+          // Se selecionou "Nenhuma dessas" ou "Não sei", desmarca todas as outras
+          state.infracoes = this.checked ? [val] : [];
+        } else {
+          // Remove "Nenhuma dessas" e "Não sei" ao selecionar outra opção
+          state.infracoes = state.infracoes.filter(function (i) { return i !== 'Nenhuma dessas' && i !== 'Não sei'; });
+          if (this.checked) {
+            state.infracoes.push(val);
+          } else {
+            state.infracoes = state.infracoes.filter(function (i) { return i !== val; });
+          }
+        }
+        renderQuiz();
+      });
+    });
+
+    // Botão "VER RESULTADO"
+    var submitBtn = document.getElementById('quiz-submit');
+    if (submitBtn && !submitBtn.disabled) {
+      submitBtn.addEventListener('click', function () {
+        var resultKey = calculateResult();
+        renderResult(resultKey);
+      });
+    }
+  }
+
+  // Inicializa o quiz
+  renderQuiz();
+})();
+</script>
+
+
+<!-- ============================================================
+     JAVASCRIPT — Formulário → WhatsApp
+     ============================================================ -->
+<script>
+/**
+ * FORMULÁRIO DE ANÁLISE → WHATSAPP
+ * ----------------------------------
+ * Coleta os dados do formulário, valida campos obrigatórios,
+ * monta uma mensagem formatada e abre o WhatsApp Web com a mensagem pronta.
+ */
+(function () {
+  var WHATSAPP_NUMBER = '5561936182228';
+
+  var form = document.getElementById('analise-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    // Impede o envio padrão do formulário (que recarregaria a página)
+    e.preventDefault();
+
+    // Coleta os dados usando FormData (API nativa do browser)
+    var fd = new FormData(form);
+
+    var nome = (fd.get('nome') || '').trim();
+    var telefone = (fd.get('telefone') || '').trim();
+    var cidade = (fd.get('cidade') || '').trim();
+    var numeroCnh = (fd.get('numeroCnh') || '').trim();
+    var situacao = (fd.get('situacao') || '').trim();
+    var motivo = (fd.get('motivo') || '').trim();
+    var defesa = (fd.get('defesa') || '').trim();
+    var marcaVeiculo = (fd.get('marcaVeiculo') || '').trim();
+    var modeloVeiculo = (fd.get('modeloVeiculo') || '').trim();
+    var cnhTrabalho = (fd.get('cnhTrabalho') || '').trim();
+
+    // getAll retorna um array (para checkboxes com o mesmo name)
+    var categorias = fd.getAll('categoria');
+
+    // Campos opcionais — valor padrão "NÃO INFORMADO"
+    var dataNotificacao = (fd.get('dataNotificacao') || '').trim() || 'NÃO INFORMADO';
+    var prazoFinal = (fd.get('prazoFinal') || '').trim() || 'NÃO INFORMADO';
+    var prazoAberto = (fd.get('prazoAberto') || '').trim() || 'NÃO INFORMADO';
+    var mensagem = (fd.get('mensagem') || '').trim() || 'NÃO INFORMADO';
+
+    // Validação dos campos obrigatórios
+    if (!nome || !telefone || !cidade || !numeroCnh || categorias.length === 0 || !situacao || !motivo || !defesa || !marcaVeiculo || !modeloVeiculo || !cnhTrabalho) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
+    var veiculo = marcaVeiculo + ' ' + modeloVeiculo;
+
+    // Monta a mensagem formatada para o WhatsApp
+    var msg = [
+      'Olá, acabei de solicitar a análise da minha CNH pelo site e gostaria de verificar minha situação.',
+      '',
+      'Nome: ' + nome,
+      '', 'Telefone: ' + telefone,
+      '', 'Cidade / Estado: ' + cidade,
+      '', 'Número da CNH: ' + numeroCnh,
+      '', 'Categoria da CNH: ' + categorias.join(', '),
+      '', 'Situação da CNH: ' + situacao,
+      '', 'Motivo da penalidade: ' + motivo,
+      '', 'Data aproximada da notificação: ' + dataNotificacao,
+      '', 'Prazo final da notificação: ' + prazoFinal,
+      '', 'Prazo para defesa: ' + prazoAberto,
+      '', 'Já apresentou defesa ou recurso: ' + defesa,
+      '', 'Veículo utilizado: ' + veiculo,
+      '', 'Uso da CNH para trabalho: ' + cnhTrabalho,
+      '', 'Descrição do caso: ' + mensagem,
+      '',
+      'Gostaria de saber se ainda existe possibilidade de defesa ou recurso para o meu caso.'
+    ].join('\n');
+
+    // Abre o WhatsApp em uma nova aba com a mensagem pronta
+    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+})();
+</script>
+
+</body>
+</html>
