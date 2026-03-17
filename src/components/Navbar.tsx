@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-
+import ThemeToggle from "@/components/ThemeToggle";
 
 const WHATSAPP_URL = "https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH.";
 
@@ -12,15 +12,18 @@ const Navbar = () => {
           <img alt="CNH de Novo" className="h-10 border-0" src="/assets/logo-navbar.png" />
         </a>
 
-        <Button variant="hero" size="sm" asChild>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="!size-4" />
-            <span className="hidden sm:inline">Fale conosco</span>
-          </a>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button variant="hero" size="sm" asChild>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="!size-4" />
+              <span className="hidden sm:inline">Fale conosco</span>
+            </a>
+          </Button>
+        </div>
       </div>
-    </nav>);
-
+    </nav>
+  );
 };
 
 export default Navbar;
