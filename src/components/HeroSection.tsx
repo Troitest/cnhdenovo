@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, FileSearch } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+const heroImage = "/assets/hero-image.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH.";
 

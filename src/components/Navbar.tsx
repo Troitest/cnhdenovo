@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-import logo from "@/assets/logo.png";
+
 
 const WHATSAPP_URL = "https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH.";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <img alt="CNH de Novo" className="h-10 border-0" src="/lovable-uploads/1092c999-e66b-430c-a43d-6fb7739dca25.png" />
+          <img alt="CNH de Novo" className="h-10 border-0" src="/assets/logo-navbar.png" />
         </a>
 
         <Button variant="hero" size="sm" asChild>

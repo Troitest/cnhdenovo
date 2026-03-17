@@ -1,5 +1,5 @@
 import { MessageCircle, Instagram } from "lucide-react";
-import logo from "@/assets/logo.png";
+
 
 const WHATSAPP_URL = "https://wa.me/5561936182228?text=Olá! Preciso de ajuda para recuperar minha CNH.";
 const INSTAGRAM_URL = "https://www.instagram.com/cnhdenovo";
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <img alt="CNH de Novo" className="h-10" src="/lovable-uploads/0d0ca69b-2d5e-4911-8e8c-e5c1979688ea.png" />
+            <img alt="CNH de Novo" className="h-10" src="/assets/logo-footer.png" />
             <p className="text-muted-foreground text-sm mt-2">
               Especialistas em CNH Suspensa e Cassada.
             </p>
