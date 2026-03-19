@@ -42,27 +42,24 @@ const ContactSection = () => {
           Escolha o canal de sua preferência para entrar em contato com nossa equipe.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <Button variant="whatsapp" size="xl" asChild>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
+          <Button variant="whatsapp" size="xl" className="w-full" asChild>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="!size-5" />
               WhatsApp
             </a>
           </Button>
-          <Button variant="heroOutline" size="xl" asChild>
+          <Button variant="heroOutline" size="xl" className="w-full" asChild>
             <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
               <Instagram className="!size-5" />
               Instagram
             </a>
           </Button>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-3">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-secondary text-foreground text-sm hover:bg-secondary/80 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-secondary text-foreground text-sm font-medium hover:bg-secondary/80 transition-colors"
           >
             <Phone className="size-4 text-accent" />
             <span>{PHONE_DISPLAY}</span>
