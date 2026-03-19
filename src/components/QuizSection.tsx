@@ -322,11 +322,6 @@ const QuizSection = () => {
             </p>
           </div>
 
-          {/* Contact chips */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <CopyChip icon={Phone} label={PHONE_DISPLAY} value="5561936182228" />
-            <CopyChip icon={Mail} label={EMAIL} value={EMAIL} />
-          </div>
 
           {/* ─── Question cards ─── */}
           {!showResult && currentQ && (
