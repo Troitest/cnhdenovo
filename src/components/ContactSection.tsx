@@ -7,31 +7,15 @@ const INSTAGRAM_URL = "https://www.instagram.com/cnhdenovo";
 const PHONE_DISPLAY = "(61) 9 3618-2228";
 const EMAIL = "contato@cnhdenovo.com.br";
 
-const CopyChip = ({ icon: Icon, label, value }: { icon: typeof Mail; label: string; value: string }) => {
+const ContactSection = () => {
   const [copied, setCopied] = useState(false);
-  const copy = () => {
-    navigator.clipboard.writeText(value);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(EMAIL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-  return (
-    <button
-      onClick={copy}
-      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-secondary text-foreground text-sm hover:bg-secondary/80 transition-colors group"
-      title={`Copiar ${label}`}
-    >
-      <Icon className="size-4 text-accent" />
-      <span>{label}</span>
-      {copied ? (
-        <Check className="size-3.5 text-[hsl(142,70%,45%)]" />
-      ) : (
-        <Copy className="size-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
-      )}
-    </button>
-  );
-};
 
-const ContactSection = () => {
   return (
     <section className="py-20 md:py-28 bg-secondary/50">
       <div className="container mx-auto px-4 text-center">
@@ -42,29 +26,57 @@ const ContactSection = () => {
           Escolha o canal de sua preferência para entrar em contato com nossa equipe.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
-          <Button variant="whatsapp" size="xl" className="w-full" asChild>
+        {/* Action buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          <Button variant="whatsapp" size="xl" asChild>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="!size-5" />
               WhatsApp
             </a>
           </Button>
-          <Button variant="heroOutline" size="xl" className="w-full" asChild>
+          <Button variant="heroOutline" size="xl" asChild>
             <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
               <Instagram className="!size-5" />
               Instagram
             </a>
           </Button>
+        </div>
+
+        {/* Contact info cards */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-secondary text-foreground text-sm font-medium hover:bg-secondary/80 transition-colors"
+            className="flex items-center gap-3 px-5 py-4 rounded-xl bg-card border border-border hover:border-accent/50 transition-colors flex-1"
           >
-            <Phone className="size-4 text-accent" />
-            <span>{PHONE_DISPLAY}</span>
+            <div className="size-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+              <Phone className="size-5 text-accent" />
+            </div>
+            <div className="text-left">
+              <p className="text-xs text-muted-foreground">Telefone</p>
+              <p className="text-sm font-medium text-foreground">{PHONE_DISPLAY}</p>
+            </div>
           </a>
-          <CopyChip icon={Mail} label={EMAIL} value={EMAIL} />
+
+          <button
+            onClick={copyEmail}
+            className="flex items-center gap-3 px-5 py-4 rounded-xl bg-card border border-border hover:border-accent/50 transition-colors flex-1 text-left group"
+            title="Copiar e-mail"
+          >
+            <div className="size-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+              <Mail className="size-5 text-accent" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs text-muted-foreground">E-mail</p>
+              <p className="text-sm font-medium text-foreground truncate">{EMAIL}</p>
+            </div>
+            {copied ? (
+              <Check className="size-4 text-[hsl(142,70%,45%)] shrink-0" />
+            ) : (
+              <Copy className="size-4 text-muted-foreground group-hover:text-foreground transition-colors shrink-0" />
+            )}
+          </button>
         </div>
       </div>
     </section>
